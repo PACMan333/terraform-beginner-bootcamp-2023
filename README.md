@@ -259,4 +259,4 @@ Provide the following code (replace with your token in the file):
 }
 ```
 
-
+We have automated the workaround with the following bash script [bin/generate_ftrc_credentials](bin/generate_ftrc_credentials) 
