@@ -90,3 +90,27 @@ Terraform loads variables in the following order, with later sources taking prec
 ```
 In Terraform 0.12 and later, variables with map and object values behave the same way as other variables: the last value found overrides the previous values. This is a change from previous versions of Terraform, which would merge map values instead of overriding them.
 ```
+
+## Dealing With Configuration Drift
+
+## What happens if we lose our state file?
+
+If you lose your statefile, you most likely will have to tear down all your cloud infrastructure manually.
+
+You can use terraform import but it will not work for all cloud resources.  You need to check the terraform providers documentation for which resources support import.
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+
+### Fix Manual Configuration
+
+If someone goes and deletes or modifies cloud resources manually through ClickOps.
+
+If we run Terraform Plan it will attempt to put our infrastructure back into the expected state, fixing the Configuration Drift.
+
