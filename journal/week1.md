@@ -278,7 +278,7 @@ They are not recommended for use by Hashicorp because Configuration Management t
 
 ### Local-exec
 
-This will execute command on the machine running the terraform commands eg. plan apply
+This will execute a command on the machine running the terraform commands eg. plan apply
 
 ```tf
 resource "aws_instance" "web" {
