@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "website_bucket" {
 
   tags = {
     UserUuid = var.user_uuid
-    Hello = "world"
+    Hello = "mars"
   }
 }
 
@@ -27,10 +27,10 @@ resource "aws_s3_bucket_website_configuration" "website_configuration" {
 resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
-  source = var.index_html_filepath
+  source = "${path.root}${var.index_html_filepath}"
   content_type = "text/html"
 
-  etag = filemd5(var.index_html_filepath)
+  etag = filemd5("${path.root}${var.index_html_filepath}")
   #lifecycle {
   #  replace_triggered_by = [terraform_data.content_version.output]
   #  ignore_changes = [etag]
@@ -41,10 +41,10 @@ resource "aws_s3_object" "index_html" {
 resource "aws_s3_object" "error_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "error.html"
-  source = var.error_html_filepath
+  source = "${path.root}${var.error_html_filepath}"
   content_type = "text/html"
 
-  etag = filemd5(var.error_html_filepath)
+  etag = filemd5("${path.root}${var.error_html_filepath}")
   #lifecycle {
   #  replace_triggered_by = [terraform_data.content_version.output]
   #  ignore_changes = [etag]
