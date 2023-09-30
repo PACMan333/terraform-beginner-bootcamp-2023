@@ -18,7 +18,7 @@ variable "bucket_name" {
     error_message = "The bucket name must be between 3 and 63 characters."
   }
 }
-/*
+
 variable "index_html_filepath" {
   description = "The file path for index.html"
   type        = string
@@ -39,4 +39,3 @@ variable "error_html_filepath" {
   }
 }
 
-*/
