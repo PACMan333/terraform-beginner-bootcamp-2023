@@ -1,11 +1,11 @@
 terraform {
-  #cloud {
-  #  organization = "PACSoft"
-  # 
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
+  cloud {
+    organization = "PACSoft"
+   
+    workspaces {
+      name = "terraform-cloud"
+    }
+  }
 
 }
 
