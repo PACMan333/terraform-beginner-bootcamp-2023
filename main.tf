@@ -26,31 +26,33 @@ provider "terratowns" {
 }
 
 
-module "home_arcanum_hosting" {
+module "home_pecans_hosting" {
   source = "./modules/terrahouse_aws"
   user_uuid = var.teacherseat_user_uuid
-  public_path = var.arcanum.public_path
-  content_version = var.arcanum.content_version
+  public_path = var.pecans.public_path
+  content_version = var.pecans.content_version
 }
 
 
 resource "terratowns_home" "home" {
-  name = "How to play Arcanum in 2023!"
+  name = "How to make Pecan Pie Bars"
   description = <<DESCRIPTION
-Arcanum is a game from 2001 that shipped with alot of bugs.
-Modders have removed all the originals making this game really fun
-to play (despite that old look graphics). This is my guide that will
-show you how to play arcanum without spoiling the plot.
+Transform the favorite, rich and gooey Thanksgiving Pecan Pie into an easy, 
+shareable bar! These pecan pie bars deliver big on the traditional nutty, 
+caramel flavor of a Pecan Pie. You can forget baking two pies, this recipe 
+will allow you to feed a whole crowd! Once they are cooked, cut and cool 
+them and then dip them in melted chocolate for a decadent holiday treat 
+everyone will love.
 DESCRIPTION
   #domain_name = module.home_arcanum_hosting.domain_name
-  domain_name = module.home_arcanum_hosting.domain_name
+  domain_name = module.home_pecans_hosting.domain_name
   #content_version = var.arcanum.content_version
   #domain_name = "3fdq33gz.cloudfront.net"
-  town = "missingo"
-  content_version = var.arcanum.content_version
+  town = "cooker-cove"
+  content_version = var.pecans.content_version
 }
 
-
+/*
 module "home_payday_hosting" {
   source = "./modules/terrahouse_aws"
   user_uuid = var.teacherseat_user_uuid
@@ -68,3 +70,4 @@ DESCRIPTION
   town = "missingo"
   content_version = var.payday.content_version
 }
+*/

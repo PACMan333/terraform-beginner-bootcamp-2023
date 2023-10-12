@@ -10,16 +10,17 @@ variable "teacherseat_user_uuid" {
   type = string
 }
 
-variable "arcanum" {
+variable "pecans" {
   type = object({
     public_path = string
     content_version = number
   })
 }
-
+/*
 variable "payday" {
   type = object({
     public_path = string
     content_version = number
   })
 }
+*/
